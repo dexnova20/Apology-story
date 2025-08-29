@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hey Girl 💕</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: url('bg.jpg') no-repeat center center/cover;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px black;
+    }
+    p {
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px black;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background: #e63946;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #d62828;
+    }
+    /* Click overlay */
+    #clickOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey girl, Do you also have an idiot boyfriend 🥲</h1>
+  <p>If yes, please confirm by pressing this button</p>
+
+  <button onclick="goNext()">Next ➝</button>
+
+  <!-- Click overlay -->
+  <div id="clickOverlay">Click anywhere to start 💖</div>
+
+  <!-- Song -->
+  <audio id="bgmusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const audio = document.getElementById("bgmusic");
+    const overlay = document.getElementById("clickOverlay");
+
+    // Start audio after user clicks anywhere
+    overlay.addEventListener("click", () => {
+      audio.play();
+      overlay.style.display = "none"; // hide overlay
+    });
+
+    function goNext(){
+      audio.pause();           // stop the music
+      audio.currentTime = 0;   // reset to start
+      window.location.href = "page2.html"; // go to page2
+    }
+  </script>
+</body>
+</html>
